@@ -51,17 +51,24 @@ function howMuchProfit(playerMoney) {
   console.log("DCV", dealerCardValue);
 
   if (playerCardValue > dealerCardValue) {
+    console.log("You Won");
+
     playerMoney += betAmount;
+
   } else if (playerCardValue < dealerCardValue) {
+    console.log("You Lost");
+
     playerMoney -= betAmount;
+
   } else if (playerCardValue === dealerCardValue) {
+
     // Tie Scenario
 
     console.log("There's a Tie");
 
     // Change Bet Amount
 
-    let betAmount = 500 * 2;
+    let betAmount = 500;
     console.log("Tie Bet Amount is now", betAmount);
 
     //In a Tie Scenario draws card Again
@@ -74,28 +81,41 @@ function howMuchProfit(playerMoney) {
     const playerSecondDrawnCardValue = cards.indexOf(playerSecondDrawnCard);
     const dealerSecondDrawnCardValue = cards.indexOf(dealerSecondDrawnCard);
 
-    console.log("PCV",playerSecondDrawnCardValue);
-    console.log("DCV",dealerSecondDrawnCardValue);
+    console.log("PCV", playerSecondDrawnCardValue);
+    console.log("DCV", dealerSecondDrawnCardValue);
 
-
-      if (playerSecondDrawnCardValue > dealerSecondDrawnCardValue) {
-        console.log("Tie Won");
-        playerMoney += betAmount;
-      } else if (playerSecondDrawnCardValue < dealerSecondDrawnCardValue) {
-        console.log("Tie Lost");
-        playerMoney -= betAmount;
-      } else if (playerSecondDrawnCardValue === dealerSecondDrawnCardValue) {
-        console.log("This is a Double Tie Lol")
-      }
-
-  }
+    if (playerSecondDrawnCardValue > dealerSecondDrawnCardValue) {
+      console.log("Tie Won");
+      playerMoney += betAmount;
+    } else if (playerSecondDrawnCardValue < dealerSecondDrawnCardValue) {
+      console.log("Tie Lost");
+      playerMoney -= betAmount;
+    } else if (playerSecondDrawnCardValue === dealerSecondDrawnCardValue) {
+      console.log("This is a Double Tie Lol");
+    }
 
   return playerMoney;
 }
+}
+
+// Logging the Results in Console
 
 result = howMuchProfit(2000);
 console.log(result);
 
-// function casinoWarSimulation() {
+// Running an Simulation for given number of rounds
 
+// function runSimulation(playerMoney) {
+//   let currentMoney = playerMoney;
+
+//   for (i = 0; i < 20; i++) {
+//     currentMoney = howMuchProfit(currentMoney);
+//   }
+
+//   return currentMoney;
 // }
+
+//Logging Simulation Results
+
+// const simulationResult = runSimulation(10000);
+// console.log("Remaining Money after 20 Rounds", simulationResult);
