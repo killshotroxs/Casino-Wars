@@ -51,25 +51,20 @@ function howMuchProfit(playerMoney) {
   console.log("DCV", dealerCardValue);
 
   if (playerCardValue > dealerCardValue) {
-    console.log("You Won");
-
     playerMoney += betAmount;
-
+    console.log("You Won");
   } else if (playerCardValue < dealerCardValue) {
-    console.log("You Lost");
-
     playerMoney -= betAmount;
-
+    console.log("You Lost");
   } else if (playerCardValue === dealerCardValue) {
-
     // Tie Scenario
 
     console.log("There's a Tie");
 
     // Change Bet Amount
 
-    let betAmount = 500;
-    console.log("Tie Bet Amount is now", betAmount);
+    let betAmount = 500 * 2;
+    console.log("Total Bet Amount is now", betAmount);
 
     //In a Tie Scenario draws card Again
 
@@ -86,36 +81,34 @@ function howMuchProfit(playerMoney) {
 
     if (playerSecondDrawnCardValue > dealerSecondDrawnCardValue) {
       console.log("Tie Won");
-      playerMoney += betAmount;
+      playerMoney += betAmount - 500;
     } else if (playerSecondDrawnCardValue < dealerSecondDrawnCardValue) {
       console.log("Tie Lost");
       playerMoney -= betAmount;
     } else if (playerSecondDrawnCardValue === dealerSecondDrawnCardValue) {
       console.log("This is a Double Tie Lol");
     }
-
+  }
   return playerMoney;
-}
 }
 
 // Logging the Results in Console
-
-result = howMuchProfit(2000);
-console.log(result);
+let result = howMuchProfit(2000);
+console.log(`Player has now ${result} to play.`);
 
 // Running an Simulation for given number of rounds
 
 // function runSimulation(playerMoney) {
 //   let currentMoney = playerMoney;
 
-//   for (i = 0; i < 20; i++) {
+//   for (i = 0; i < 50; i++) {
 //     currentMoney = howMuchProfit(currentMoney);
 //   }
 
 //   return currentMoney;
 // }
 
-//Logging Simulation Results
+// //Logging Simulation Results
 
 // const simulationResult = runSimulation(10000);
 // console.log("Remaining Money after 20 Rounds", simulationResult);
